@@ -1,43 +1,57 @@
-# class stack:
-#     def __init__(self):
-#         self.arr = []
+# Stack
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def isempty(self):
+        return len(self.stack) == 0
+
+    def push(self, item):
+        self.stack.append(item)
+
+    def pop(self):
+        if not self.isempty():
+            return self.stack.pop()
+        else:
+            return None
+
+    def peek(self):
+        if not self.isempty():
+            return self.stack[-1]
+        else:
+            return None
+
+    def size(self):
+        return len(self.stack)
     
-#     def push(self,num):
-#         self.arr.append(num)
-#     def pop(self):
-#         if self.isEmpty():
-#             print("Stack is empty")
-#         else:
-#             self.arr.pop()
-#     def size(self):
-#         return len(self.arr)
-#     def isEmpty(self):
-#         return self.size() == 0
-#     def printStack(self):
-#         print(self.arr)
-#     def peek(self):
-#         return self.arr[-1]
+    def display(self):
+        return self.stack
 
-# #write code
+# write code
 
-# def keepLargestOnTop(stack):
-#     helper = Stack()
-#     While stack.isEmpty()!=True:
-#         a = stack.peek()
-#         if max<a:
-#             max = a
-#         helper.push(a)
-#         stack.pop()
-    
+def keepLargestOnTop(stk):
+    hsk = Stack()   
+    max = stk.pop()
+    while not stk.isempty():
+        if max <= stack.peek():
+            hsk.push(max)
+            max = stack.pop()
+        else:
+            hsk.push(stk.pop())
+    while not hsk.isempty():
+        stk.push(hsk.pop())
+    stk.push(max)
+    return stk
 
-# s1 = stack()
-# s1.push(4)
-# s1.push(2)
-# s1.push(14)
-# s1.push(42)
-# s1.push(12)
-# s1.push(9)
-# s1.printStack()
+# input
 
+x = [4,14,42,12,9]
+stack = Stack()
+for i in x:
+    stack.push(i)
 
-
+print("Input: ",end="")
+print(stack.display())
+print("Output: ",end="")
+stack = keepLargestOnTop(stack)
+print(stack.display())

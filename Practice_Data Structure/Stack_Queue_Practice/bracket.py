@@ -15,6 +15,8 @@ class Stack:
   def isEmpty(self):
     return len(self.data) == 0
 
+# Write code
+
 brackets = input()
 s = Stack()
 for b in brackets:

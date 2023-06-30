@@ -6,7 +6,7 @@ class stack:
         self.arr.append(num)
     def pop(self):
         if self.isEmpty():
-            print("Stack is empty")
+            return "Stack is empty"
         else:
             self.arr.pop()
 
@@ -20,6 +20,8 @@ class stack:
        return self.arr
 
     def peek(self):
+        if self.isEmpty():
+            return "Stack is empty"            
         return self.arr[-1]
 
 ## write code
