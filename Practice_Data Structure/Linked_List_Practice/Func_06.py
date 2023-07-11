@@ -38,47 +38,28 @@ class SLL:
         count += 1
         return count
 
-lst1 = SLL() 
-lst2 = SLL()
-lst3 = SLL()
+    # Sorted_insert
+    def sorted_insert(self, V):
+        new_node = Node(V)
+        if self.head is None:
+            self.head = new_node
+        else:
+            cur = self.head
+            while cur is not None and cur.data <= V:
+                cur = cur.next
+                
 
-# equalNode
-def equalNode(lst_A, lst_B):
-    equal = True
-    if lst_A.size() != lst_B.size():
-        equal = False
-    else:
-        cur_A = lst_A.head
-        cur_B = lst_B.head
-        while cur_A.next is not None:
-            if cur_A.data == cur_B.data:
-                cur_A = cur_A.next
-                cur_B = cur_B.next
-            else:
-                equal = False
-                break
-    if equal == True:
-        print(f"A and B are same!!")
-    else:
-        print(f"A and B aren't same!!")
-# linked list_1
-lst1.Add_last(7)  
-lst1.Add_last(6)  
-lst1.Add_last(10)  
-lst1.Add_last(11)  
 
-# linked lsit_2
-lst2.Add_last(7)  
-lst2.Add_last(16)  
-lst2.Add_last(10)  
-lst2.Add_last(11) 
 
-# linked lsit_2
-lst3.Add_last(7)  
-lst3.Add_last(6)  
-lst3.Add_last(10)  
-  
-equalNode(lst2, lst3)
-# print(lst3.size())
-  
 
+
+lst = SLL()
+lst.Add_last(3)
+lst.Add_last(5)
+lst.Add_last(6)
+lst.Add_last(7)
+lst.Add_last(10)
+lst.display()
+print()
+lst.sorted_insert(4)
+lst.display()
