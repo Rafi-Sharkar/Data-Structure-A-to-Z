@@ -33,9 +33,9 @@ def keepLargestOnTop(stk):
     hsk = Stack()   
     max = stk.pop()
     while not stk.isempty():
-        if max <= stack.peek():
+        if max <= stk.peek():
             hsk.push(max)
-            max = stack.pop()
+            max = stk.pop()
         else:
             hsk.push(stk.pop())
     while not hsk.isempty():

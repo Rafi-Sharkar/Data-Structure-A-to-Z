@@ -14,8 +14,8 @@ def rev(num):
     while num > 0:
         dt = num % 10
         num = num // 10
-        lst.append(dt)
-    # st = "".join(lst)
-    return lst
+        lst.append(str(dt))
+    st = "".join(lst)
+    return st
 
 print(rev(5678))

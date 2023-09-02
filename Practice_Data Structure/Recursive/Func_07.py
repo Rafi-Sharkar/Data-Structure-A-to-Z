@@ -24,31 +24,30 @@ class SLL:
             print("Linked List is empty")
         else:
             cur = self.head
-            while cur is not None:
+            while cur.next is not None:
                 print(cur.data,end="->")
                 cur = cur.next
-            # print(cur.data)
+            print(cur.data)
+            
+    # Delete first k'th node in linked list
+    def rec_delete(self, cur, k):
+        if(self.head.data==k):
+            self.head=self.head.next
+            return
 
-    # numOfOccurrences of x
-    def numOfOccurrences(self, x):
-        cur = self.head
-        count = 0
-        while cur.next is not None:
-            if cur.data == x:
-                count += 1
-            cur = cur.next
-        return f"{x} has {count} occerrence"
+        if cur.next.data == k:
+            cur.next = cur.next.next
+            return
+        return self.rec_delete(cur.next, k)
 
 
-
-lst = SLL()
-lst.Add_last(4)
-lst.Add_last(7)
-lst.Add_last(2)
-lst.Add_last(4)
-lst.Add_last(5)
-lst.Add_last(4)
-lst.Add_last(2)
-lst.display()
-print()
-# print(lst.numOfOccurrences(4))
+sll = SLL()
+sll.Add_last(3)
+sll.Add_last(2)
+sll.Add_last(3)
+sll.Add_last(7)
+sll.Add_last(0)
+sll.Add_last(1)
+sll.display()
+sll.rec_delete(sll.head, 3)
+sll.display()

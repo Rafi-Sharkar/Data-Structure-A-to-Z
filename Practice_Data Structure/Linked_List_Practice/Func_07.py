@@ -1,6 +1,6 @@
 class Node:
-    def __init__(self, data):
-        self.data = data
+    def __init__(self, value):
+        self.data = value
         self.next = None
 
 class SLL:
@@ -8,8 +8,8 @@ class SLL:
         self.head = None
     
     # Add from last
-    def Add_last(self, data):
-        new_node = Node(data)
+    def Add_last(self, value):
+        new_node = Node(value)
         if self.head is None:
             self.head = new_node
         else:
@@ -38,33 +38,38 @@ class SLL:
         count += 1
         return count
 
-    # Sorted_insert
-    def sorted_Insert(self,x):
-        new_node=Node(x)
+    # remove even form the linked list
+    def reverse(self):
+        prev = None
         cur = self.head
         while cur is not None:
-            if cur.data > x:
-                new_node.next = self.head
-                self.head = new_node
-                break
-            elif cur.data < x and cur.next is not None and cur.next.data >= x:
-                new_node.next = cur.next
-                cur.next = new_node
-                break
-            elif cur.data < x and cur.next is None:
-                cur.next = new_node
-                break
-            else:
-                cur = cur.next
+            t = cur.next
+            cur.next = prev
+            prev = cur
+            cur = t
+        self.head = prev
+        
+
+
+"""
+how to write paper 
+"""
+                
 
 
 lst = SLL()
+
+lst.Add_last(1)
+
+lst.Add_last(2)
 lst.Add_last(3)
+
+lst.Add_last(4)
 lst.Add_last(5)
-lst.Add_last(6)
-lst.Add_last(7)
-lst.Add_last(10)
+
 lst.display()
 print()
-lst.sorted_Insert(7)
+lst.reverse()
+print("after remove even ")
 lst.display()
+

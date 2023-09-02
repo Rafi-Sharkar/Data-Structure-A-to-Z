@@ -13,10 +13,9 @@ class SLL:
         if cur is None:
             print("Linked List is Empty")
         else:
-            while cur.next is not None:
+            while cur is not None:
                 print(cur.data)
                 cur = cur.next
-            print(cur.data)
 
     # Add element at last
     def Addlast(self, value):
@@ -42,12 +41,10 @@ class SLL:
     def Add_after_X(self, x, value):
         new_node = Node(value)
         cur = self.head
-        temp=None
-        while cur.next is not None:
+        while cur is not None:
             if cur.data == x:
-                temp = cur.next
+                new_node.next = cur.next
                 cur.next = new_node
-                new_node.next = temp
                 break
             else:
                 cur = cur.next
@@ -56,14 +53,11 @@ class SLL:
     def Add_before_X(self, x, value):
         new_node = Node(value)
         cur = self.head
-        temp = None
-        while cur.next is not None:
+        while cur is not None:
             if cur.next.data == x:
-                temp = cur.next
-                new_node.next = temp
+                new_node.next = cur.next
                 cur.next = new_node
-                break
-                
+                break                
             else:
                 cur = cur.next
             
@@ -78,12 +72,12 @@ class SLL:
     def remove_first(self):
         cur = self.head
         self.head = cur.next
-        cur.next = None
+
     
     # Remove element after the tergated value
     def remove_after_x(self, x):
         cur = self.head
-        while cur.next is not None:
+        while cur is not None:
             if cur.data == x:
                 cur.next = cur.next.next
                 break
@@ -93,7 +87,7 @@ class SLL:
     # Remove element before the tergated value
     def remove_before_x(self, x):
         cur = self.head
-        while cur.next is not None:
+        while cur is not None:
             if cur.next.next.data == x:
                 cur.next = cur.next.next
                 break
@@ -103,7 +97,7 @@ class SLL:
     # Search
     def Search(self, x):
         cur = self.head
-        while cur.next is not None:
+        while cur is not None:
             if cur.data == x:
                 print(f"{x} is exist in Linked List")
                 break
@@ -120,10 +114,11 @@ lst.Addlast(9)
 lst.Addlast(11)
 lst.Addlast(14)
 lst.Addlast(17)
+lst.Search(6)
 lst.display()
 print()
 
 
-lst.Add_after_X(11,13)
-lst.display()
+# lst.Add_after_X(11,13)
+# lst.display()
     

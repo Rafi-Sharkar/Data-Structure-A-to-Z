@@ -24,31 +24,23 @@ class SLL:
             print("Linked List is empty")
         else:
             cur = self.head
-            while cur is not None:
+            while cur.next is not None:
                 print(cur.data,end="->")
                 cur = cur.next
-            # print(cur.data)
-
-    # numOfOccurrences of x
-    def numOfOccurrences(self, x):
-        cur = self.head
-        count = 0
-        while cur.next is not None:
-            if cur.data == x:
-                count += 1
-            cur = cur.next
-        return f"{x} has {count} occerrence"
+            print(cur.data)
+    def rec_display(self,cur):
+        if cur is None:
+            return
+        print(cur.data,end="->")
+        self.rec_display(cur.next)
 
 
-
-lst = SLL()
-lst.Add_last(4)
-lst.Add_last(7)
-lst.Add_last(2)
-lst.Add_last(4)
-lst.Add_last(5)
-lst.Add_last(4)
-lst.Add_last(2)
-lst.display()
-print()
-# print(lst.numOfOccurrences(4))
+sll = SLL()
+sll.Add_last(3)
+sll.Add_last(2)
+sll.Add_last(3)
+sll.Add_last(7)
+sll.Add_last(0)
+sll.Add_last(1)
+sll.display()
+sll.rec_display(sll.head)

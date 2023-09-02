@@ -46,15 +46,14 @@ class SLL:
             self.head = new_node
         else:
             cur = self.head
-            while cur.next is not None:
-                if cur.next.data == givenValue:
-                    temp = cur.next
+            while cur is not None:
+                if cur.next is not None and cur.next.data == givenValue:
+                    new_node.next = cur.next
                     cur.next = new_node
-                    new_node.next = temp
-                    break
+                    return
                 else:
                     cur = cur.next
-            if cur.next is None:
+            if not cur:
                 print("Given value is not found")
             
 
@@ -67,5 +66,5 @@ lst.Add_last(7)
 lst.Add_last(10)
 lst.display()
 print()
-lst.addNodeBeforeValue(11,2)
-# lst.display()
+lst.addNodeBeforeValue(3,2)
+lst.display()

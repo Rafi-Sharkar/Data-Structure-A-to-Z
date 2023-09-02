@@ -31,12 +31,10 @@ class SLL:
         sum = 0
         count = 0
         cur = self.head
-        while cur.next is not None:
+        while cur is not None:
             sum += cur.data
             count += 1
             cur = cur.next
-        sum += cur.data
-        count += 1
         return float(sum/count)
 
 lst = SLL()
